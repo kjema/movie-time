@@ -1,5 +1,5 @@
 import { Nav } from "components/nav";
-import { GetStaticProps, GetServerSideProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import { requests, TmdbMovieItem, TMDBResponse } from "utils/requests";
 import { Result } from "components/result";
 import Head from "next/head";

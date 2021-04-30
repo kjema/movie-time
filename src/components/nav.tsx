@@ -6,7 +6,7 @@ export const Nav = () => {
   return (
     <nav className="relative">
       <div className="flex overflow-x-scroll py-2 space-x-10 whitespace-nowrap scrollbar-hide">
-        {Object.entries(requests).map(([key, { title, url }]) => (
+        {Object.entries(requests).map(([key, { title }]) => (
           <h2
             key={key}
             className="transition duration-100 transform cursor-pointer hover:scale-125 active:text-red-400"
