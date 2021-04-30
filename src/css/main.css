@@ -4,8 +4,16 @@
 
 @layer base {
   :is(#__next, #__root, body, html) {
-    width: 100%;
-    min-height: 100vh;
+    @apply w-full min-h-screen;
     -webkit-tap-highlight-color: transparent;
   }
+}
+
+/* Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+/* Safari and Chrome */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
