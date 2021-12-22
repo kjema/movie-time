@@ -44,7 +44,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<TaktResult[] | 
     if (err instanceof Error) {
       throw err;
     }
-    throw new Error(err);
+    throw new Error("Unknown error");
   }
 };
 

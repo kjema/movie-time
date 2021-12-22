@@ -1,7 +1,7 @@
+/** @type {import('next').NextConfig} */
 module.exports = {
-  future: {
-    webpack5: true,
-  },
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
     domains: ["image.tmdb.org"],
   },
