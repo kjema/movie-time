@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { GetServerSideProps, NextPage } from "next";
 
-import { Nav } from "~/shared/components/nav";
 import { Result } from "~/shared/components/result";
 import { TmdbMovieItem, TmdbResponse } from "~/shared/models/tmdb";
 import { requests } from "~/features/tmdb/requests";
@@ -13,14 +12,7 @@ const Home: NextPage<{ results: TmdbMovieItem[] }> = ({ results }) => {
         <title>start | MovieTime</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className="container px-[30px] pt-24 mx-auto">
-        <h1 className="text-[34px] font-extrabold">
-          Movie<span className="text-blue-500">Time</span>
-        </h1>
-        <p className="text-[17px]">My List</p>
-        <Nav />
-        <Result results={results} />
-      </div>
+      <Result results={results} />
     </>
   );
 };

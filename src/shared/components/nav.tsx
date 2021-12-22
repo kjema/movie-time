@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import { requests } from "~/features/tmdb/requests";
 
@@ -16,6 +17,11 @@ export const Nav = () => {
             {title}
           </h2>
         ))}
+        <Link href="/my-list">
+          <a className="transition duration-100 transform cursor-pointer hover:scale-125 active:text-red-400">
+            My List
+          </a>
+        </Link>
       </div>
       <div className="absolute top-0 right-0 w-1/12 h-10 bg-gradient-to-l from-white" />
     </nav>
