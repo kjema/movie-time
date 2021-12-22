@@ -1,8 +1,10 @@
-import { Nav } from "components/nav";
-import { GetServerSideProps, NextPage } from "next";
-import { requests, TmdbMovieItem, TMDBResponse } from "utils/requests";
-import { Result } from "components/result";
 import Head from "next/head";
+import { GetServerSideProps, NextPage } from "next";
+
+import { Nav } from "~/shared/components/nav";
+import { Result } from "~/shared/components/result";
+import { TmdbMovieItem, TmdbResponse } from "~/shared/models/tmdb";
+import { requests } from "~/features/tmdb/requests";
 
 const Home: NextPage<{ results: TmdbMovieItem[] }> = ({ results }) => {
   return (
@@ -33,7 +35,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const genre: keyof typeof requests =
     (context.query.genre as keyof typeof requests) ?? "fetchTrending";
   const url = `https://api.themoviedb.org/3${requests[genre].url}`;
-  const res = (await fetch(url).then((res) => res.json())) as TMDBResponse;
+  const res = (await fetch(url).then((res) => res.json())) as TmdbResponse;
 
   return {
     props: {

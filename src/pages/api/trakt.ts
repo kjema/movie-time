@@ -1,21 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-// https://trakt.docs.apiary.io
+import { TaktResult } from "~/shared/models/trakt";
 
-type TaktResult = {
-  type: string;
-  score: number;
-  movie: {
-    title: string;
-    year: number;
-    ids: {
-      trakt: number;
-      slug: string;
-      imdb: string | null;
-      tmdb: number;
-    };
-  };
-};
+// https://trakt.docs.apiary.io
 
 const headers: HeadersInit = {
   "Content-Type": "application/json",

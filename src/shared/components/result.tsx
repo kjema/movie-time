@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { TmdbMovieItem } from "utils/requests";
+
 import { ThumbUpIcon } from "@heroicons/react/outline";
+import { TmdbMovieItem } from "~/shared/models/tmdb";
 
 export const Result = ({ results }: { results: TmdbMovieItem[] }) => {
   // console.dir(results);

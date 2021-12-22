@@ -1,33 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
+import { FanartResult } from "~/shared/models/fanart";
+
 // https://fanarttv.docs.apiary.io
-
-type FanartImage = {
-  id: string;
-  url: string;
-  lang: string;
-  likes: string;
-};
-
-type FanartMovieDisc = FanartImage & {
-  disc: string;
-  disc_type: string;
-};
-
-type FanartResult = {
-  name: string;
-  tmdb_id: string;
-  imdb_id: string;
-  hdmovieclearart: FanartImage[];
-  movieposter: FanartImage[];
-  hdmovielogo: FanartImage[];
-  moviedisc: FanartMovieDisc[];
-  moviebackground: FanartImage[];
-  moviethumb: FanartImage[];
-  moviebanner: FanartImage[];
-  movielogo: FanartImage[];
-  movieart: FanartImage[];
-};
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<FanartResult | null>) => {
   const {

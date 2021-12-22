@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import { requests } from "utils/requests";
+
+import { requests } from "~/features/tmdb/requests";
 
 export const Nav = () => {
   const router = useRouter();
