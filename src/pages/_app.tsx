@@ -5,7 +5,7 @@ import { Nav } from "~/shared/components/nav";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <div className="container px-[30px] pt-24 mx-auto">
+    <div className="container mx-auto px-[30px] pt-24">
       <h1 className="text-[34px] font-extrabold">
         Movie<span className="text-blue-500">Time</span>
       </h1>

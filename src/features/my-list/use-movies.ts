@@ -8,6 +8,7 @@ const q = query(collection(db, "movie"));
 export const useMoviesSnapshot = () => {
   const [movies, setMovies] = useState<any[]>([]);
   useEffect(() => {
+    console.log("useMoviesSnapshot useEffect");
     const unsubscribe = onSnapshot(q, (snapshot) => {
       setMovies(snapshot.docs.map((doc) => doc.data()));
     });
