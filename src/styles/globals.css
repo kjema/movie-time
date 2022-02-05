@@ -2,18 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: "Inter var";
   font-weight: 100 900;
   font-display: swap;
   font-style: normal;
   font-named-instance: "Regular";
   src: url("/fonts/Inter-roman-latin.var.woff2") format("woff2");
-}
+} */
 
 @layer base {
   :is(#__next, #__root, body, html) {
-    @apply w-full min-h-screen;
+    @apply min-h-screen w-full;
     -webkit-tap-highlight-color: transparent;
   }
 }
