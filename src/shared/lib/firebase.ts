@@ -24,6 +24,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 // export const firebaseApp = !getApps.length ? initializeApp(firebaseConfig) : getApp();
+console.log("Running firebaseApp");
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 

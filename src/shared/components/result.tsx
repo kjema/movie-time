@@ -6,7 +6,7 @@ import { TmdbMovieItem } from "~/shared/models/tmdb";
 export const Result = ({ results }: { results: TmdbMovieItem[] }) => {
   // console.dir(results);
   return (
-    <div className="flex-wrap gap-4 justify-center my-10 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex">
+    <div className="3xl:flex my-10 flex-wrap justify-center gap-4 sm:grid md:grid-cols-2 xl:grid-cols-3">
       {results.map((item) => (
         <Card key={item.id} item={item} />
       ))}
@@ -17,8 +17,9 @@ export const Result = ({ results }: { results: TmdbMovieItem[] }) => {
 export const Card = ({ item }: { item: TmdbMovieItem }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original";
   return (
-    <div className="transition duration-200 ease-in transform group sm:hover:scale-105">
+    <div className="group transform transition duration-200 ease-in sm:hover:scale-105">
       <Image
+        alt="movie poster"
         layout="responsive"
         width={1920}
         height={1080}
