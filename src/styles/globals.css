@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: optional;
+  font-style: normal;
+  src: url(/fonts/Inter.var.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: optional;
+  font-style: italic;
+  src: url(/fonts/Inter.var.woff2) format("woff2");
+}
+
 @layer base {
   :is(#__next, #__root, body, html) {
     @apply min-h-screen w-full;

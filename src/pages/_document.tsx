@@ -3,11 +3,17 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en" className="text-slate-900 antialiased">
+      <Html lang="en">
         <Head>
-          <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+          <link
+            rel="preload"
+            href="/fonts/Inter.var.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
         </Head>
-        <body>
+        <body className="text-slate-900 antialiased">
           <Main />
           <NextScript />
         </body>

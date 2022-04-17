@@ -29,7 +29,7 @@ export default function Movie({ movie }: MovieProps) {
           onLoadingComplete={() => setLoading(false)}
         />
       </div>
-      <h3 className="mt-4 text-sm text-slate-700">{movie.release_date}</h3>
+      <h2 className="mt-4 text-sm text-slate-700">{movie.release_date}</h2>
       <p className="mt-1 text-base font-medium text-slate-900">{movie.title}</p>
     </div>
   );
