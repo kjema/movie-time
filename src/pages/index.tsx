@@ -37,7 +37,7 @@ interface IndexProps {
 const Index: NextPage<IndexProps> = ({ movies }) => {
   const [filteredMovies, setFilteredMovies] = useState(movies);
   const [activeFilter, setActiveFilter] = useState<TmdbMovieFilter>(
-    TmdbMovieFilter.ALL,
+    TmdbMovieFilter.ALL
   );
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const Index: NextPage<IndexProps> = ({ movies }) => {
       return;
     }
     setFilteredMovies(
-      movies.filter((movie) => movie.genre_ids.includes(activeFilter)),
+      movies.filter((movie) => movie.genre_ids.includes(activeFilter))
     );
   }, [activeFilter, movies]);
 

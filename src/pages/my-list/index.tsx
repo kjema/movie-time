@@ -26,14 +26,14 @@ const MyList: NextPage = () => {
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       console.log(
         "useEffect",
-        querySnapshot.docs.map((doc) => doc.data()),
+        querySnapshot.docs.map((doc) => doc.data())
       );
       setMovies(
         querySnapshot.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
           timestamp: doc.data().timestamp?.toDate().getTime(),
-        })),
+        }))
       );
     });
     return unsubscribe;

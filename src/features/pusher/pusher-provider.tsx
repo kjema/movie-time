@@ -1,5 +1,11 @@
 import PusherJs from "pusher-js";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 type Context = PusherJs | null;
 
@@ -14,7 +20,9 @@ const createPusherClient = (): PusherJs => {
   return pusher;
 };
 
-export const PusherProvider: React.FunctionComponent = ({ children }) => {
+export const PusherProvider: React.FC<React.PropsWithChildren<{}>> = ({
+  children,
+}) => {
   const [pusherClient] = useState<PusherJs>(createPusherClient);
   // const [pusherClient, setPusherClient] = React.useState<PusherJs | null>(null);
   // const pusherRef = useRef<PusherJs>(createPusherClient());
@@ -35,7 +43,11 @@ export const PusherProvider: React.FunctionComponent = ({ children }) => {
   //   };
   // }, []);
 
-  return <pusherContext.Provider value={pusherClient}>{children}</pusherContext.Provider>;
+  return (
+    <pusherContext.Provider value={pusherClient}>
+      {children}
+    </pusherContext.Provider>
+  );
 };
 
 export const usePusher = () => {

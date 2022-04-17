@@ -23,7 +23,7 @@ export default function Movie({ movie }: MovieProps) {
           className={cn(
             isLoading
               ? "scale-110 blur-2xl grayscale"
-              : "scale-100 blur-0 grayscale-0",
+              : "scale-100 blur-0 grayscale-0"
           )}
           onLoadingComplete={() => setLoading(false)}
         />

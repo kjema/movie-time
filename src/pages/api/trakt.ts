@@ -10,7 +10,10 @@ const headers: HeadersInit = {
   "trakt-api-key": process.env.TRAKT_CLIENT_ID!,
 };
 
-const handler = async (req: NextApiRequest, res: NextApiResponse<TaktResult[] | null>) => {
+const handler = async (
+  req: NextApiRequest,
+  res: NextApiResponse<TaktResult[] | null>
+) => {
   const {
     query: { type, search },
     method,
@@ -19,9 +22,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<TaktResult[] | 
   try {
     switch (method) {
       case "GET":
-        const response = await fetch(`https://api.trakt.tv/search/${type}?query=${search}`, {
-          headers,
-        });
+        const response = await fetch(
+          `https://api.trakt.tv/search/${type}?query=${search}`,
+          {
+            headers,
+          }
+        );
 
         const result = await response.json();
         res.status(200).json(result);

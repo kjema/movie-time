@@ -4,7 +4,10 @@ import { FanartResult } from "~/shared/models/fanart";
 
 // https://fanarttv.docs.apiary.io
 
-const handler = async (req: NextApiRequest, res: NextApiResponse<FanartResult | null>) => {
+const handler = async (
+  req: NextApiRequest,
+  res: NextApiResponse<FanartResult | null>
+) => {
   const {
     query: { id },
     method,
@@ -18,7 +21,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<FanartResult | 
     switch (method) {
       case "GET":
         const response = await fetch(
-          `https://webservice.fanart.tv/v3/movies/${id}?api_key=${process.env.FANART_API_KEY!}`
+          `https://webservice.fanart.tv/v3/movies/${id}?api_key=${process.env
+            .FANART_API_KEY!}`
         );
 
         const result = await response.json();
