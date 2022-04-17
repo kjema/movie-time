@@ -12,7 +12,7 @@ export default function Movie({ movie }: MovieProps) {
   const [isLoading, setLoading] = useState(true);
   return (
     <div className="group">
-      <div className="aspect-w-16 aspect-h-9 w-full transform overflow-hidden rounded-lg bg-gray-200 transition duration-300 ease-in-out sm:hover:scale-105">
+      <div className="aspect-w-16 aspect-h-9 w-full transform overflow-hidden rounded-lg bg-gray-100 transition duration-300 ease-in-out sm:hover:scale-105">
         <Image
           alt="movie poster"
           src={`${Const.TMDB_BASE_IMAGE_URL}/${
@@ -21,9 +21,10 @@ export default function Movie({ movie }: MovieProps) {
           layout="fill"
           objectFit="cover"
           className={cn(
+            "transition duration-300 ease-in-out",
             isLoading
               ? "scale-110 blur-2xl grayscale"
-              : "scale-100 blur-0 grayscale-0"
+              : "scale-100 blur-0 grayscale-0",
           )}
           onLoadingComplete={() => setLoading(false)}
         />
