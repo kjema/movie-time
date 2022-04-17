@@ -22,7 +22,7 @@ const getInitialAuthState = async (): Promise<User | null> => {
 
 const authContext = createContext({} as Context);
 
-export const AuthProvider: React.FunctionComponent = ({ children }) => {
+export const AuthProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const [context, setContext] = useState<Context>({
     currentUser: suspend(getInitialAuthState, ["initialAuthState"]),
   });

@@ -1,4 +1,4 @@
-import * as Const from "~/shared/const";
+import * as Const from "~/shared/constants";
 
 export const requests = {
   fetchTrending: {

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import * as Const from "~/shared/const";
+import * as Const from "~/shared/constants";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const {
