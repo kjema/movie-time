@@ -16,10 +16,10 @@ model Movie {
   id          String   @id @default(cuid())
   createdAt   DateTime @default(now())
   imdbId      String
-  overview    String   @db.Text
+  overview    String   @db.VarChar(5000)
   posterPath  String
   releaseDate DateTime
   runtime     Int
   tagline     String
-  title       String
+  title       String   @db.TinyText
 }

@@ -1,8 +1,8 @@
-import { AppRouter } from "@/backend/router";
+import type { AppRouter } from "@/backend/router";
 import Layout from "@/layouts/Layout";
 import "@/styles/globals.css";
 import { withTRPC } from "@trpc/next";
-import { AppType } from "next/dist/shared/lib/utils";
+import type { AppType } from "next/dist/shared/lib/utils";
 import Head from "next/head";
 import superjson from "superjson";
 

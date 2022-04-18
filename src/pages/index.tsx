@@ -1,5 +1,6 @@
 import { trpc } from "@/utils/trpc";
 import { NextPage } from "next";
+import * as React from "react";
 
 // export const getServerSideProps: GetServerSideProps = async (_context) => {
 //   const movies = await getMovies();
@@ -10,6 +11,31 @@ import { NextPage } from "next";
 //   };
 // };
 
+function CreateMovie() {
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  const client = trpc.useContext();
+  const { mutate, isLoading } = trpc.useMutation("movies.create", {
+    onSuccess: () => {
+      client.invalidateQueries("movies.get-all");
+    },
+  });
+
+  return (
+    <input
+      ref={inputRef}
+      disabled={isLoading}
+      onKeyDown={(event) => {
+        if (event.key === "Enter") {
+          console.log(event.currentTarget.value);
+          mutate({ title: event.currentTarget.value });
+          if (!inputRef.current) return;
+          inputRef.current.value = "";
+        }
+      }}
+    />
+  );
+}
+
 const Index: NextPage = () => {
   const { data, isLoading } = trpc.useQuery(["movies.get-all"]);
 
@@ -18,7 +44,12 @@ const Index: NextPage = () => {
   return (
     <div className="my-6">
       {/* <Gallery movies={movies} /> */}
-      <div>{data[0]?.title}</div>
+      <CreateMovie />
+      <div>
+        {data.map((movie) => (
+          <div key={movie.id}>{movie.title}</div>
+        ))}
+      </div>
     </div>
   );
 };
