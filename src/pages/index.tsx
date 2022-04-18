@@ -1,10 +1,5 @@
-import Gallery from "@/components/Gallery";
-import { getMovies } from "@/shared/api";
-import { TmdbMovieItem } from "@/shared/models/tmdb";
-import { GetServerSideProps, NextPage } from "next";
-import { prisma } from "@/db/client";
-import { Movie } from "@prisma/client";
 import { trpc } from "@/utils/trpc";
+import { NextPage } from "next";
 
 // export const getServerSideProps: GetServerSideProps = async (_context) => {
 //   const movies = await getMovies();
@@ -15,16 +10,11 @@ import { trpc } from "@/utils/trpc";
 //   };
 // };
 
-interface IndexProps {
-  movies: string;
-}
-
-const Index: NextPage<IndexProps> = ({ movies }) => {
-  const { data, isLoading } = trpc.useQuery(["getAllMovies"]);
+const Index: NextPage = () => {
+  const { data, isLoading } = trpc.useQuery(["movies.get-all"]);
 
   if (isLoading || !data) return <div>Loading...</div>;
 
-  console.log(data)
   return (
     <div className="my-6">
       {/* <Gallery movies={movies} /> */}
