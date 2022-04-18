@@ -1,9 +1,12 @@
-import type { AppProps } from "next/app";
-import Head from "next/head";
 import Layout from "@/layouts/Layout";
 import "@/styles/globals.css";
+import { withTRPC } from "@trpc/next";
+import { AppType } from "next/dist/shared/lib/utils";
+import Head from "next/head";
+import superjson from "superjson";
+import { AppRouter } from "./api/trpc/[trpc]";
 
-function App({ Component, pageProps }: AppProps) {
+const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
@@ -19,6 +22,29 @@ function App({ Component, pageProps }: AppProps) {
       </Layout>
     </>
   );
-}
+};
 
-export default App;
+export default withTRPC<AppRouter>({
+  config({ ctx }) {
+    /**
+     * If you want to use SSR, you need to use the server's full URL
+     * @link https://trpc.io/docs/ssr
+     */
+    const url = process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}/api/trpc`
+      : "http://localhost:3000/api/trpc";
+
+    return {
+      transformer: superjson,
+      url,
+      /**
+       * @link https://react-query.tanstack.com/reference/QueryClient
+       */
+      // queryClientConfig: { defaultOptions: { queries: { staleTime: 60 } } },
+    };
+  },
+  /**
+   * @link https://trpc.io/docs/ssr
+   */
+  ssr: false,
+})(MyApp);
