@@ -18,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   url.searchParams.set("language", "en-US");
 
   const request = new Request(url.href);
-  const response = await fetch(request, { method: "GET" });
+  const response = await fetch(request);
 
   if (!response.ok) return Promise.reject(response.statusText);
   const data: TmdbResponse = await response.json();
