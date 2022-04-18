@@ -1,4 +1,4 @@
-import { TmdbMovieItem } from "~/shared/models/tmdb";
+import { TmdbMovieItem } from "@/shared/models/tmdb";
 import Movie from "./Movie";
 
 interface GalleryProps {

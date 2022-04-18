@@ -1,8 +1,8 @@
+import cn from "@/shared/classnames";
+import * as Const from "@/shared/constants";
+import { TmdbMovieItem } from "@/shared/models/tmdb";
 import Image from "next/image";
 import { useState } from "react";
-import cn from "~/shared/classnames";
-import * as Const from "~/shared/constants";
-import { TmdbMovieItem } from "~/shared/models/tmdb";
 
 interface MovieProps {
   movie: TmdbMovieItem;
