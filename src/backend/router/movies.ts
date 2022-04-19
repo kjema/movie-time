@@ -9,6 +9,14 @@ export const movieRouter = trpc
       return await prisma.movie.findMany();
     },
   })
+  .query("get-by-id", {
+    input: z.object({ id: z.string() }),
+    async resolve({ input }) {
+      return await prisma.movie.findFirst({
+        where: { id: input.id },
+      });
+    },
+  })
   .mutation("create", {
     input: z.object({
       title: z.string(),

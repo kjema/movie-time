@@ -13,7 +13,7 @@ datasource db {
 }
 
 model Movie {
-  id          String   @id @default(cuid())
+  id          String   @id @unique @default(cuid())
   createdAt   DateTime @default(now())
   imdbId      String
   overview    String   @db.VarChar(5000)

@@ -37,7 +37,9 @@ function CreateMovie() {
 }
 
 const Index: NextPage = () => {
-  const { data, isLoading } = trpc.useQuery(["movies.get-all"]);
+  const { data, isLoading, isError, error } = trpc.useQuery(["movies.get-all"]);
+
+  if (isError) return <div>{error.message}</div>;
 
   if (isLoading || !data) return <div>Loading...</div>;
 

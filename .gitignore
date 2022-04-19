@@ -37,4 +37,5 @@ yarn-error.log*
 # misc
 *.log
 
-tsconfig.tsbuildinfo
+# typescript 
+*.tsbuildinfo
